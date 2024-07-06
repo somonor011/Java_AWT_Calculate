@@ -40,7 +40,7 @@ public class cal extends Frame implements ActionListener {
     public cal(){
 
         // create label Title
-        lb = new Label("Calculate"); // set text
+        lb = new Label("Calculator"); // set text
         lb.setBounds(267,30,150,50); // set location label
         setlb(lb); // setlb is function that create , lb is object for create title not param in function
 
