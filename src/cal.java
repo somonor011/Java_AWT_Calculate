@@ -7,7 +7,7 @@ public class cal extends Frame implements ActionListener {
 
     Label lb; // Label is Class , lb is Object
     TextField txtInputA,txtInputB,txtResult;
-    Button btnSum , btnMin , btnDiv , btnMul;
+    Button btnSum , btnMin , btnDiv , btnMul , btnClose;
 
     // create function for label
     public void setlb(Label lb){
@@ -29,7 +29,7 @@ public class cal extends Frame implements ActionListener {
     }
 
     public  void setBtn(Button button){
-        button.setFont(new Font("Calibri (Body)",Font.BOLD,25)); // set Font
+        button.setFont(new Font("Calibri (Body)",Font.BOLD,20)); // set Font
         button.setForeground(new Color(222,49,99)); // set text color
         add(button); // add txt to show on frame
     }
@@ -76,33 +76,40 @@ public class cal extends Frame implements ActionListener {
 
         // create button Sum
         btnSum = new Button("Sum");
-        btnSum.setBounds(80,326,100,40);
+        btnSum.setBounds(80,326,90,40);
         btnSum.setFocusable(false); // delete border around text in button
         setBtn(btnSum);
 
         // create button Minus
         btnMin = new Button("Min");
-        btnMin.setBounds(210,326,100,40);
+        btnMin.setBounds(180,326,90,40);
         btnMin.setFocusable(false); // delete border around text in button
         setBtn(btnMin);
 
         // create button Mul
         btnMul = new Button("Multi");
-        btnMul.setBounds(340,326,100,40);
+        btnMul.setBounds(280,326,90,40);
         btnMul.setFocusable(false); // delete border around text in button
         setBtn(btnMul);
 
         // create button Dev
         btnDiv = new Button("Dev");
-        btnDiv.setBounds(470,326,100,40);
+        btnDiv.setBounds(380,326,90,40);
         btnDiv.setFocusable(false); // delete border around text in button
         setBtn(btnDiv);
+
+        // create button close window
+        btnClose = new Button("Close");
+        btnClose.setBounds(480,326,90,40);
+        btnClose.setFocusable(false); // delete border around text in button
+        setBtn(btnClose);
 
         // action Sum
         btnSum.addActionListener(this); // set button action on frame
         btnMin.addActionListener(this);
         btnMul.addActionListener(this);
         btnDiv.addActionListener(this);
+        btnClose.addActionListener(this);
 
         // frame
         setLayout(null);
@@ -145,6 +152,8 @@ public class cal extends Frame implements ActionListener {
             float numB = Float.parseFloat(txtInputB.getText());
             float total = numA/numB;
             txtResult.setText(String.valueOf(df.format(total)));
+        } else if (e.getSource()==btnClose) {
+            System.exit(0);
         }
     }
 }
